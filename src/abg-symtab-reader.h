@@ -28,8 +28,6 @@ namespace abigail
 namespace symtab_reader
 {
 
-class symtab_filter_builder;
-
 /// The symtab filter is the object passed to the symtab object in order to
 /// iterate over the symbols in the symtab while applying filters.
 ///
@@ -39,22 +37,46 @@ class symtab_filter_builder;
 class symtab_filter
 {
 public:
-  // The symtab_filter_builder helps us to build filters efficiently, hence
-  // let's be nice and grant access to our internals.
-  friend class symtab_filter_builder;
-
   // Default constructor disabling all features.
   symtab_filter() {}
 
-  /// Determine whether a symbol is matching the filter criteria of this filter
-  /// object. In terms of a filter functionality, you would _not_ filter out
-  /// this symbol if it passes this (i.e. returns true).
-  ///
-  /// @param symbol The Elf symbol under test.
-  ///
-  /// @return whether the symbol matches all relevant / required criteria
   bool
-  matches(const elf_symbol_sptr& symbol) const;
+  matches(const elf_symbol& symbol) const;
+
+  /// Enable or disable function filtering
+  ///
+  /// @param new_value whether to filter for functions
+  void
+  set_functions(bool new_value = true)
+  {functions_ = new_value;};
+
+  /// Enable or disable variable filtering
+  ///
+  /// @param new_value whether to filter for variables
+  void
+  set_variables(bool new_value = true)
+  {variables_ = new_value;};
+
+  /// Enable or disable public symbol filtering
+  ///
+  /// @param new_value whether to filter for public symbols
+  void
+  set_public_symbols(bool new_value = true)
+  {public_symbols_ = new_value;};
+
+  /// Enable or disable undefined symbol filtering
+  ///
+  /// @param new_value whether to filter for undefined symbols
+  void
+  set_undefined_symbols(bool new_value = true)
+  {undefined_symbols_ = new_value;};
+
+  /// Enable or disable kernel symbol filtering
+  ///
+  /// @param new_value whether to filter for kernel symbols
+  void
+  set_kernel_symbols(bool new_value = true)
+  {kernel_symbols_ = new_value;};
 
 private:
   // The symbol is a function (FUNC)
@@ -72,60 +94,6 @@ private:
 
   // The symbol is listed in the ksymtab (for Linux Kernel binaries).
   abg_compat::optional<bool> kernel_symbols_;
-};
-
-/// Helper class to provide an attractive interface to build symtab_filters.
-///
-/// When constructed, the helper instantiates a default symtab_filter and
-/// allows modifications to it via builder pattern / fluent interface.
-///
-/// When assigned to a symtab_filter instance, it converts by returning the
-/// locally build symtab_filter instance.
-///
-/// Example usage:
-///
-///   const symtab_filter filter =
-///                symtab_filter_builder().functions().kernel_symbols();
-///
-/// In that case we would filter for the conjunction of function symbols that
-/// also appear in the ksymtab (i.e. kernel symbols).
-class symtab_filter_builder
-{
-public:
-  /// Enable inclusive / exclusive filtering for functions.
-  symtab_filter_builder&
-  functions(bool value = true)
-  { filter_.functions_ = value; return *this; }
-
-  /// Enable inclusive / exclusive filtering for variables.
-  symtab_filter_builder&
-  variables(bool value = true)
-  { filter_.variables_ = value; return *this; }
-
-  /// Enable inclusive / exclusive filtering for public symbols.
-  symtab_filter_builder&
-  public_symbols(bool value = true)
-  { filter_.public_symbols_ = value; return *this; }
-
-  /// Enable inclusive / exclusive filtering for undefined symbols.
-  symtab_filter_builder&
-  undefined_symbols(bool value = true)
-  { filter_.undefined_symbols_ = value; return *this; }
-
-  /// Enable inclusive / exclusive filtering for kernel symbols.
-  symtab_filter_builder&
-  kernel_symbols(bool value = true)
-  { filter_.kernel_symbols_ = value; return *this; }
-
-  /// Convert seamlessly to a symtab_filter instance.
-  ///
-  /// We could possibly validate the filter constellations here. For now, we
-  /// just return the local filter instance.
-  operator symtab_filter() { return filter_; }
-
-private:
-  /// Local symtab_filter instance that we build and eventually pass on.
-  symtab_filter filter_;
 };
 
 /// Base iterator for our custom iterator based on whatever the const_iterator
@@ -151,13 +119,21 @@ public:
   /// Construct the iterator based on a pair of underlying iterators and a
   /// symtab_filter object. Immediately fast forward to the next element that
   /// matches the criteria (if any).
+  ///
+  /// @param begin the underlying begin iterator
+  ///
+  /// @param begin the underlying end iterator
+  ///
+  /// @param filter the symtab_filter to apply
   symtab_iterator(base_iterator	       begin,
 		  base_iterator	       end,
 		  const symtab_filter& filter = symtab_filter())
     : base_iterator(begin), end_(end), filter_(filter)
-  { skip_to_next(); }
+  {skip_to_next();}
 
   /// Pre-increment operator to advance to the next matching element.
+  ///
+  /// @return itself after incrementing
   symtab_iterator&
   operator++()
   {
@@ -167,6 +143,8 @@ public:
   }
 
   /// Post-increment operator to advance to the next matching element.
+  ///
+  /// @return a copy of the iterator before incrementing
   symtab_iterator
   operator++(int)
   {
@@ -187,7 +165,7 @@ private:
   void
   skip_to_next()
   {
-    while (*this != end_ && !filter_.matches(**this))
+    while (*this != end_ && !filter_.matches(***this))
       ++(*this);
   }
 };
@@ -209,10 +187,10 @@ typedef std::unique_ptr<symtab> symtab_ptr;
 ///
 /// An example use of the symtab class is
 ///
-/// const auto symtab          = symtab::load(elf_handle, env);
-/// const symtab_filter filter = symtab->make_filter()
-///                              .public_symbols()
-///                              .functions();
+/// const auto symtab    = symtab::load(elf_handle, env);
+/// symtab_filter filter = symtab->make_filter();
+/// filter.set_public_symbols();
+/// filter.set_functions();
 ///
 /// for (const auto& symbol : filtered_symtab(*symtab, filter))
 ///   {
@@ -230,16 +208,9 @@ public:
   /// @return true if there are symbols detected earlier.
   bool
   has_symbols() const
-  { return is_kernel_binary_ ? has_ksymtab_entries_ : !symbols_.empty(); }
+  {return is_kernel_binary_ ? has_ksymtab_entries_ : !symbols_.empty();}
 
-  /// Obtain a suitable default filter for iterating this symtab object.
-  ///
-  /// The symtab_filter_build obtained is populated with some sensible default
-  /// settings, such as public_symbols(true) and kernel_symbols(true) if the
-  /// binary has been identified as Linux Kernel binary.
-  ///
-  /// @return a symtab_filter_builder with sensible populated defaults
-  symtab_filter_builder
+  symtab_filter
   make_filter() const;
 
   /// The (only) iterator type we offer is a const_iterator implemented by the
@@ -255,56 +226,30 @@ public:
   /// @return a filtering const_iterator of the underlying type
   const_iterator
   begin(const symtab_filter& filter) const
-  { return symtab_iterator(symbols_.begin(), symbols_.end(), filter); }
+  {return symtab_iterator(symbols_.begin(), symbols_.end(), filter);}
 
   /// Obtain an iterator to the end of the symtab.
   ///
   /// @return an end iterator
   const_iterator
   end() const
-  { return symtab_iterator(symbols_.end(), symbols_.end()); }
+  {return symtab_iterator(symbols_.end(), symbols_.end());}
 
-  /// Get a vector of symbols that are associated with a certain name
-  ///
-  /// @param name the name the symbols need to match
-  ///
-  /// @return a vector of symbols, empty if no matching symbols have been found
   const elf_symbols&
   lookup_symbol(const std::string& name) const;
 
-  /// Lookup a symbol by its address
-  ///
-  /// @param symbol_addr the starting address of the symbol
-  ///
-  /// @return a symbol if found, else an empty sptr
   const elf_symbol_sptr&
   lookup_symbol(GElf_Addr symbol_addr) const;
 
-  /// Construct a symtab object and instantiate from an ELF handle. Also pass
-  /// in an ir::environment handle to interact with the context we are living
-  /// in. If specified, the symbol_predicate will be respected when creating
-  /// the full vector of symbols.
   static symtab_ptr
   load(Elf*		elf_handle,
        ir::environment* env,
        symbol_predicate is_suppressed = NULL);
 
-  /// Construct a symtab object from existing name->symbol lookup maps.
-  /// They were possibly read from a different representation (XML maybe).
   static symtab_ptr
   load(string_elf_symbols_map_sptr function_symbol_map,
        string_elf_symbols_map_sptr variables_symbol_map);
 
-  /// Notify the symtab about the name of the main symbol at a given address.
-  ///
-  /// From just alone the symtab we can't guess the main symbol of a bunch of
-  /// aliased symbols that all point to the same address. During processing of
-  /// additional information (such as DWARF), this information becomes apparent
-  /// and we can adjust the addr->symbol lookup map as well as the alias
-  /// reference of the symbol objects.
-  ///
-  /// @param addr the addr that we are updating the main symbol for
-  /// @param name the name of the main symbol
   void
   update_main_symbol(GElf_Addr addr, const std::string& name);
 
@@ -330,34 +275,16 @@ private:
 		       name_symbol_map_type;
   name_symbol_map_type name_symbol_map_;
 
-  /// Lookup map name->symbol
+  /// Lookup map addr->symbol
   typedef std::unordered_map<GElf_Addr, elf_symbol_sptr> addr_symbol_map_type;
   addr_symbol_map_type addr_symbol_map_;
 
   /// Lookup map function entry address -> symbol
   addr_symbol_map_type entry_addr_symbol_map_;
 
-  /// Load the symtab representation from an Elf binary presented to us by an
-  /// Elf* handle.
-  ///
-  /// This method iterates over the entries of .symtab and collects all
-  /// interesting symbols (functions and variables).
-  ///
-  /// In case of a Linux Kernel binary, it also collects information about the
-  /// symbols exported via EXPORT_SYMBOL in the Kernel that would then end up
-  /// having a corresponding __ksymtab entry.
-  ///
-  /// Symbols that are suppressed will be omitted from the symbols_ vector, but
-  /// still be discoverable through the name->symbol and addr->symbol lookup
-  /// maps.
   bool
   load_(Elf* elf_handle, ir::environment* env, symbol_predicate is_suppressed);
 
-  /// Load the symtab representation from a function/variable lookup map pair.
-  ///
-  /// This method assumes the lookup maps are correct and sets up the data
-  /// vector as well as the name->symbol lookup map. The addr->symbol lookup
-  /// map cannot be set up in this case.
   bool
   load_(string_elf_symbols_map_sptr function_symbol_map,
        string_elf_symbols_map_sptr variables_symbol_map);
@@ -389,17 +316,18 @@ public:
   /// Construct the proxy object keeping references to the underlying symtab
   /// and the filter object.
   filtered_symtab(const symtab& tab, const symtab_filter& filter)
-    : tab_(tab), filter_(filter) { }
+    : tab_(tab), filter_(filter)
+  {}
 
   /// Pass through symtab.begin(), but also pass on the filter.
   symtab::const_iterator
   begin() const
-  { return tab_.begin(filter_); }
+  {return tab_.begin(filter_);}
 
   /// Pass through symtab.end().
   symtab::const_iterator
   end() const
-  { return tab_.end(); }
+  {return tab_.end();}
 };
 
 } // end namespace symtab_reader

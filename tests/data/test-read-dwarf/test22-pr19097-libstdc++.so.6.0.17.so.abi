@@ -4626,7 +4626,7 @@
     <pointer-type-def type-id='type-id-101' size-in-bits='64' id='type-id-97'/>
     <typedef-decl name='pthread_mutex_t' type-id='type-id-102' filepath='/usr/include/bits/pthreadtypes.h' line='104' column='1' id='type-id-100'/>
     <union-decl name='__anonymous_union__' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='77' column='1' id='type-id-102'>
-      <member-type access='private'>
+      <member-type access='public'>
         <class-decl name='__pthread_mutex_s' size-in-bits='320' is-struct='yes' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='78' column='1' id='type-id-103'>
           <data-member access='public' layout-offset-in-bits='0'>
             <var-decl name='__lock' type-id='type-id-6' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='80' column='1'/>
@@ -4651,13 +4651,13 @@
           </data-member>
         </class-decl>
       </member-type>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__data' type-id='type-id-103' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='101' column='1'/>
       </data-member>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__size' type-id='type-id-105' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='102' column='1'/>
       </data-member>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__align' type-id='type-id-32' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='103' column='1'/>
       </data-member>
     </union-decl>
@@ -6103,7 +6103,7 @@
     <typedef-decl name='__gthread_mutex_t' type-id='type-id-100' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/x86_64-unknown-linux-gnu/bits/gthr-default.h' line='56' column='1' id='type-id-76'/>
     <typedef-decl name='pthread_mutex_t' type-id='type-id-102' filepath='/usr/include/bits/pthreadtypes.h' line='104' column='1' id='type-id-100'/>
     <union-decl name='__anonymous_union__' size-in-bits='320' is-anonymous='yes' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='77' column='1' id='type-id-102'>
-      <member-type access='private'>
+      <member-type access='public'>
         <class-decl name='__pthread_mutex_s' size-in-bits='320' is-struct='yes' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='78' column='1' id='type-id-103'>
           <data-member access='public' layout-offset-in-bits='0'>
             <var-decl name='__lock' type-id='type-id-6' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='80' column='1'/>
@@ -6128,13 +6128,13 @@
           </data-member>
         </class-decl>
       </member-type>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__data' type-id='type-id-103' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='101' column='1'/>
       </data-member>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__size' type-id='type-id-105' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='102' column='1'/>
       </data-member>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__align' type-id='type-id-32' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='103' column='1'/>
       </data-member>
     </union-decl>
@@ -11884,13 +11884,13 @@
       <class-decl name='aligned_storage&lt;112ul, 8ul&gt;' size-in-bits='8' is-struct='yes' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/type_traits' line='1645' column='1' id='type-id-822'>
         <member-type access='public'>
           <union-decl name='type' size-in-bits='896' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/type_traits' line='1647' column='1' id='type-id-821'>
-            <member-type access='private'>
+            <member-type access='public'>
               <class-decl name='__anonymous_struct__' size-in-bits='64' is-struct='yes' is-anonymous='yes' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/type_traits' line='1650' column='1' id='type-id-823'/>
             </member-type>
-            <data-member access='private'>
+            <data-member access='public'>
               <var-decl name='__data' type-id='type-id-622' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/type_traits' line='1649' column='1'/>
             </data-member>
-            <data-member access='private'>
+            <data-member access='public'>
               <var-decl name='__align' type-id='type-id-823' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/type_traits' line='1650' column='1'/>
             </data-member>
           </union-decl>
@@ -12936,7 +12936,7 @@
     <reference-type-def kind='lvalue' type-id='type-id-879' size-in-bits='64' id='type-id-903'/>
     <pointer-type-def type-id='type-id-879' size-in-bits='64' id='type-id-901'/>
     <union-decl name='__anonymous_union__1' size-in-bits='384' is-anonymous='yes' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='116' column='1' id='type-id-909'>
-      <member-type access='private'>
+      <member-type access='public'>
         <class-decl name='__anonymous_struct__' size-in-bits='384' is-struct='yes' is-anonymous='yes' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='118' column='1' id='type-id-927'>
           <data-member access='public' layout-offset-in-bits='0'>
             <var-decl name='__lock' type-id='type-id-6' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='119' column='1'/>
@@ -12964,13 +12964,13 @@
           </data-member>
         </class-decl>
       </member-type>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__data' type-id='type-id-927' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='127' column='1'/>
       </data-member>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__size' type-id='type-id-928' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='128' column='1'/>
       </data-member>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__align' type-id='type-id-286' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='129' column='1'/>
       </data-member>
     </union-decl>
@@ -13347,10 +13347,10 @@
     <class-decl name='__anonymous_struct__' size-in-bits='64' is-struct='yes' is-anonymous='yes' naming-typedef-id='type-id-959' visibility='default' filepath='/usr/include/wchar.h' line='84' column='1' id='type-id-961'>
       <member-type access='public'>
         <union-decl name='__anonymous_union__' size-in-bits='32' is-anonymous='yes' visibility='default' filepath='/usr/include/wchar.h' line='87' column='1' id='type-id-962'>
-          <data-member access='private'>
+          <data-member access='public'>
             <var-decl name='__wch' type-id='type-id-12' visibility='default' filepath='/usr/include/wchar.h' line='89' column='1'/>
           </data-member>
-          <data-member access='private'>
+          <data-member access='public'>
             <var-decl name='__wchb' type-id='type-id-952' visibility='default' filepath='/usr/include/wchar.h' line='93' column='1'/>
           </data-member>
         </union-decl>
@@ -30583,7 +30583,7 @@
     <typedef-decl name='__gthread_cond_t' type-id='type-id-892' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/x86_64-unknown-linux-gnu/bits/gthr-default.h' line='58' column='1' id='type-id-858'/>
     <typedef-decl name='pthread_cond_t' type-id='type-id-909' filepath='/usr/include/bits/pthreadtypes.h' line='130' column='1' id='type-id-892'/>
     <union-decl name='__anonymous_union__1' size-in-bits='384' is-anonymous='yes' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='116' column='1' id='type-id-909'>
-      <member-type access='private'>
+      <member-type access='public'>
         <class-decl name='__anonymous_struct__' size-in-bits='384' is-struct='yes' is-anonymous='yes' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='118' column='1' id='type-id-927'>
           <data-member access='public' layout-offset-in-bits='0'>
             <var-decl name='__lock' type-id='type-id-6' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='119' column='1'/>
@@ -30611,13 +30611,13 @@
           </data-member>
         </class-decl>
       </member-type>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__data' type-id='type-id-927' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='127' column='1'/>
       </data-member>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__size' type-id='type-id-928' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='128' column='1'/>
       </data-member>
-      <data-member access='private'>
+      <data-member access='public'>
         <var-decl name='__align' type-id='type-id-286' visibility='default' filepath='/usr/include/bits/pthreadtypes.h' line='129' column='1'/>
       </data-member>
     </union-decl>
@@ -31083,7 +31083,7 @@
             </member-type>
             <member-type access='public'>
               <union-decl name='__anonymous_union__' size-in-bits='384' is-anonymous='yes' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='155' column='1' id='type-id-1973'>
-                <member-type access='private'>
+                <member-type access='public'>
                   <class-decl name='__anonymous_struct__' size-in-bits='384' is-struct='yes' is-anonymous='yes' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='158' column='1' id='type-id-1974'>
                     <data-member access='public' layout-offset-in-bits='0'>
                       <var-decl name='_M_name' type-id='type-id-4' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='159' column='1'/>
@@ -31108,7 +31108,7 @@
                     </data-member>
                   </class-decl>
                 </member-type>
-                <member-type access='private'>
+                <member-type access='public'>
                   <class-decl name='__anonymous_struct__1' size-in-bits='192' is-struct='yes' is-anonymous='yes' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='170' column='1' id='type-id-1975'>
                     <data-member access='public' layout-offset-in-bits='0'>
                       <var-decl name='_M_name' type-id='type-id-4' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='171' column='1'/>
@@ -31121,7 +31121,7 @@
                     </data-member>
                   </class-decl>
                 </member-type>
-                <member-type access='private'>
+                <member-type access='public'>
                   <class-decl name='__anonymous_struct__2' size-in-bits='128' is-struct='yes' is-anonymous='yes' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='178' column='1' id='type-id-1976'>
                     <data-member access='public' layout-offset-in-bits='0'>
                       <var-decl name='_M_name' type-id='type-id-4' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='179' column='1'/>
@@ -31131,7 +31131,7 @@
                     </data-member>
                   </class-decl>
                 </member-type>
-                <member-type access='private'>
+                <member-type access='public'>
                   <class-decl name='__anonymous_struct__3' size-in-bits='128' is-struct='yes' is-anonymous='yes' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='185' column='1' id='type-id-1977'>
                     <data-member access='public' layout-offset-in-bits='0'>
                       <var-decl name='_M_name' type-id='type-id-4' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='186' column='1'/>
@@ -31141,16 +31141,16 @@
                     </data-member>
                   </class-decl>
                 </member-type>
-                <data-member access='private'>
+                <data-member access='public'>
                   <var-decl name='_M_iterator' type-id='type-id-1974' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='166' column='1'/>
                 </data-member>
-                <data-member access='private'>
+                <data-member access='public'>
                   <var-decl name='_M_sequence' type-id='type-id-1975' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='174' column='1'/>
                 </data-member>
-                <data-member access='private'>
+                <data-member access='public'>
                   <var-decl name='_M_integer' type-id='type-id-1976' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='181' column='1'/>
                 </data-member>
-                <data-member access='private'>
+                <data-member access='public'>
                   <var-decl name='_M_string' type-id='type-id-1977' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/debug/formatter.h' line='188' column='1'/>
                 </data-member>
               </union-decl>
@@ -32863,16 +32863,16 @@
       </class-decl>
       <class-decl name='binary_function&lt;const std::__regex::_PatternCursor&amp;, std::__regex::_Results&amp;, void&gt;' size-in-bits='8' is-struct='yes' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/bits/stl_function.h' line='116' column='1' id='type-id-2221'/>
       <union-decl name='_Nocopy_types' size-in-bits='128' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/functional' line='1652' column='1' id='type-id-2222'>
-        <data-member access='private'>
+        <data-member access='public'>
           <var-decl name='_M_object' type-id='type-id-18' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/functional' line='1654' column='1'/>
         </data-member>
-        <data-member access='private'>
+        <data-member access='public'>
           <var-decl name='_M_const_object' type-id='type-id-18' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/functional' line='1655' column='1'/>
         </data-member>
-        <data-member access='private'>
+        <data-member access='public'>
           <var-decl name='_M_function_pointer' type-id='type-id-97' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/functional' line='1656' column='1'/>
         </data-member>
-        <data-member access='private'>
+        <data-member access='public'>
           <var-decl name='_M_member_pointer' type-id='type-id-2054' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/functional' line='1657' column='1'/>
         </data-member>
       </union-decl>
@@ -33096,10 +33096,10 @@
         </member-function>
       </class-decl>
       <union-decl name='_Any_data' size-in-bits='128' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/functional' line='1660' column='1' id='type-id-2077'>
-        <data-member access='private'>
+        <data-member access='public'>
           <var-decl name='_M_unused' type-id='type-id-2222' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/functional' line='1675' column='1'/>
         </data-member>
-        <data-member access='private'>
+        <data-member access='public'>
           <var-decl name='_M_pod_data' type-id='type-id-2053' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/functional' line='1676' column='1'/>
         </data-member>
       </union-decl>
@@ -49850,10 +49850,10 @@
         </member-type>
         <member-type access='private'>
           <union-decl name='_Block_record' size-in-bits='64' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/mt_allocator.h' line='282' column='1' id='type-id-3293'>
-            <data-member access='private'>
+            <data-member access='public'>
               <var-decl name='_M_next' type-id='type-id-3294' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/mt_allocator.h' line='285' column='1'/>
             </data-member>
-            <data-member access='private'>
+            <data-member access='public'>
               <var-decl name='_M_thread_id' type-id='type-id-96' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/mt_allocator.h' line='288' column='1'/>
             </data-member>
           </union-decl>
@@ -49998,7 +49998,7 @@
         <base-class access='public' layout-offset-in-bits='0' type-id='type-id-3298'/>
         <member-type access='private'>
           <union-decl name='_Block_record' size-in-bits='64' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/mt_allocator.h' line='197' column='1' id='type-id-3285'>
-            <data-member access='private'>
+            <data-member access='public'>
               <var-decl name='_M_next' type-id='type-id-3286' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/mt_allocator.h' line='200' column='1'/>
             </data-member>
           </union-decl>
@@ -50683,10 +50683,10 @@
         </member-type>
         <member-type access='protected'>
           <union-decl name='_Obj' size-in-bits='64' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/pool_allocator.h' line='85' column='1' id='type-id-3387'>
-            <data-member access='private'>
+            <data-member access='public'>
               <var-decl name='_M_free_list_link' type-id='type-id-3376' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/pool_allocator.h' line='87' column='1'/>
             </data-member>
-            <data-member access='private'>
+            <data-member access='public'>
               <var-decl name='_M_client_data' type-id='type-id-211' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/pool_allocator.h' line='88' column='1'/>
             </data-member>
           </union-decl>
