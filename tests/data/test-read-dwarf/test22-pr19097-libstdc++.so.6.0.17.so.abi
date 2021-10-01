@@ -41846,10 +41846,10 @@
         <member-type access='public'>
           <typedef-decl name='allocator_type' type-id='type-id-2995' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/rope' line='606' column='1' id='type-id-2978'/>
         </member-type>
-        <data-member access='public' layout-offset-in-bits='0'>
+        <data-member access='public' layout-offset-in-bits='448'>
           <var-decl name='_M_tag' type-id='type-id-3078' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/rope' line='590' column='1'/>
         </data-member>
-        <data-member access='public' layout-offset-in-bits='0'>
+        <data-member access='public' layout-offset-in-bits='456'>
           <var-decl name='_M_is_balanced' type-id='type-id-10' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/rope' line='591' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='464'>
@@ -42056,10 +42056,10 @@
         <member-type access='public'>
           <typedef-decl name='allocator_type' type-id='type-id-3007' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/rope' line='606' column='1' id='type-id-2983'/>
         </member-type>
-        <data-member access='public' layout-offset-in-bits='0'>
+        <data-member access='public' layout-offset-in-bits='448'>
           <var-decl name='_M_tag' type-id='type-id-3078' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/rope' line='590' column='1'/>
         </data-member>
-        <data-member access='public' layout-offset-in-bits='0'>
+        <data-member access='public' layout-offset-in-bits='456'>
           <var-decl name='_M_is_balanced' type-id='type-id-10' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/ext/rope' line='591' column='1'/>
         </data-member>
         <data-member access='public' layout-offset-in-bits='464'>
@@ -51947,13 +51947,13 @@
         <data-member access='private' layout-offset-in-bits='576'>
           <var-decl name='_M_free_fun' type-id='type-id-93' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/backward/strstream' line='119' column='1'/>
         </data-member>
-        <data-member access='private' layout-offset-in-bits='0'>
+        <data-member access='private' layout-offset-in-bits='640'>
           <var-decl name='_M_dynamic' type-id='type-id-10' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/backward/strstream' line='121' column='1'/>
         </data-member>
-        <data-member access='private' layout-offset-in-bits='1'>
+        <data-member access='private' layout-offset-in-bits='641'>
           <var-decl name='_M_frozen' type-id='type-id-10' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/backward/strstream' line='122' column='1'/>
         </data-member>
-        <data-member access='private' layout-offset-in-bits='2'>
+        <data-member access='private' layout-offset-in-bits='642'>
           <var-decl name='_M_constant' type-id='type-id-10' visibility='default' filepath='/tmp/legendre/spack-stage/spack-stage-wfh0ig/gcc-4.7.4/x86_64-unknown-linux-gnu/libstdc++-v3/include/backward/strstream' line='123' column='1'/>
         </data-member>
         <member-function access='private' constructor='yes'>
